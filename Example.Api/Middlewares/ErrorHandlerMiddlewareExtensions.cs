@@ -1,17 +1,15 @@
 using System.Net.Mime;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
-using AssetManagement.Api.Models;
-using AssetManagement.Core.Exceptions;
-
+using Example.Api.Models;
+using ExampleApi.Core.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
-namespace AssetManagement.Api.Middlewares;
+namespace Example.Api.Middlewares;
 
 public static class ErrorHandlerMiddlewareExtensions
 {
-    public static void UseEnxierExceptionHandler(this WebApplication app)
+    public static void UseCustomExceptionHandler(this WebApplication app)
     {
         app.UseExceptionHandler(appError =>
         {
@@ -19,7 +17,6 @@ public static class ErrorHandlerMiddlewareExtensions
             {
                 context.Response.ContentType = MediaTypeNames.Application.Json;
                 var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                // var applicationContext = appError.ServerFeatures.Get<IApplicationContext>();
                 if (contextFeature != null)
                 {
                     var jsonConfig = new JsonSerializerOptions()

@@ -1,6 +1,6 @@
-using AssetManagement.Core;
+using ExampleApi.Core;
 
-namespace AssetManagement.Api.Models;
+namespace Example.Api.Models;
 
 /// <summary>
 /// PageResponse is a generic class that represents a paginated response for API calls.

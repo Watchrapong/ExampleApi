@@ -1,15 +1,13 @@
-using AssetManagement.Core;
-using AssetManagement.Core.Entities;
-
+using ExampleApi.Core;
+using ExampleApi.Core.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AssetManagement.Data;
+namespace ExampleApi.Data;
 
 public static class IServiceCollectionExtensions
 {
-    public static IServiceCollection AddEnRepositories(this IServiceCollection services)
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        // register repositories with find all IEntity types
         var entityTypes = typeof(IEntity).Assembly.GetTypes()
             .Where(t => t.IsClass)
             .Where(t => t.GetInterfaces().Contains(typeof(IEntity)))

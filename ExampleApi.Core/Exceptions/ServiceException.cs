@@ -1,5 +1,5 @@
 
-namespace Example.Api.Exceptions;
+namespace ExampleApi.Core.Exceptions;
 
 /// <summary>
 /// Represents an exception that occurs in the service layer.

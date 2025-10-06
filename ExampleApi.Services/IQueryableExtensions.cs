@@ -1,14 +1,12 @@
 using System.Linq.Expressions;
-
-using AssetManagement.Core;
-using AssetManagement.Core.Dtos;
-using AssetManagement.Core.Entities;
-
+using ExampleApi.Core;
+using ExampleApi.Core.Dtos;
+using ExampleApi.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AssetManagement.Services;
+namespace ExampleApi.Services;
 
-public static class IQueryableExtensions
+public static class QueryableExtensions
 {
     public static async Task<Pagination<TOut>> ToPaginationAsync<T, TOut>(this IQueryable<T> query, IPageQuery<T> pq, Expression<Func<T, TOut>> func, string? defaultOrderKey = null, SortTypes? defaultSortType = null, CancellationToken cancellationToken = default) where T : IEntity where TOut : class
     {
@@ -30,9 +28,8 @@ public static class IQueryableExtensions
     private static IQueryable<T> ApplyOrderBy<T>(this IQueryable<T> query, IPageQuery<T> pq, string? defaultOrderKey = null, SortTypes? defaultSortType = null) where T : IEntity
     {
         var p = typeof(T)
-                    .GetProperties()
-                    .Where(p => p.Name.Equals(pq.SortKey, StringComparison.CurrentCultureIgnoreCase))
-                    .FirstOrDefault();
+                .GetProperties()
+                .FirstOrDefault(p => p.Name.Equals(pq.SortKey, StringComparison.CurrentCultureIgnoreCase));
 
         if (p == null)
         {

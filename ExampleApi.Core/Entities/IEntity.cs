@@ -1,4 +1,4 @@
-namespace AssetManagement.Core.Entities;
+namespace ExampleApi.Core.Entities;
 
 /// <summary>
 /// เอนทิตีสำหรับติดต่อกับฐานข้อมูล
@@ -6,11 +6,6 @@ namespace AssetManagement.Core.Entities;
 public interface IEntity
 {
 }
-
-/// <summary>
-/// เอนทิตีที่ต้องบันทึกการตรวจสอบ
-/// </summary>
-public interface IAuditLogEntity : IEntity { }
 
 /// <summary>
 /// เอนทิตีที่มี ID

@@ -1,4 +1,4 @@
-namespace AssetManagement.Api.Models;
+namespace Example.Api.Models;
 
 /// <summary>
 /// Interface for all Api Response

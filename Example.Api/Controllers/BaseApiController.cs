@@ -1,23 +1,14 @@
 using System.Net.Mime;
-
-using Asp.Versioning;
-
-using AssetManagement.Api.ActionFilters;
-using AssetManagement.Api.Models;
-
+using Example.Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AssetManagement.Api.Controllers;
+namespace Example.Api.Controllers;
 
-[Authorize]
-[ApiVersion(1.0)]
 [Route("[controller]")]
 [ApiController]
 [ProducesResponseType<FailResponse>(StatusCodes.Status400BadRequest)]
 [ProducesResponseType<FailResponse>(StatusCodes.Status500InternalServerError)]
-[Produces(MediaTypeNames.Application.Json)]
-[TypeFilter<ModelStateValidateFilterAction>]
 public abstract class BaseApiController : ControllerBase
 {
     protected IBaseResponse Success()

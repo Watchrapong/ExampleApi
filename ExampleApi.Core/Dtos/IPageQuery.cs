@@ -1,6 +1,6 @@
-using AssetManagement.Core.Entities;
+using ExampleApi.Core.Entities;
 
-namespace AssetManagement.Core.Dtos;
+namespace ExampleApi.Core.Dtos;
 
 /// <summary>
 /// ประเภทการจัดเรียงในการค้นหาข้อมูล

@@ -1,4 +1,4 @@
-namespace AssetManagement.Core;
+namespace ExampleApi.Core;
 
 public class Pagination<T> where T : class
 {
